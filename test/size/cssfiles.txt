@@ -1,0 +1,5 @@
+http://a.tbcdn.cn/p/global/1.0/global.css
+http://a.tbcdn.cn/p/global/1.0/global-min.css
+
+http://0.web.qstatic.com/webqqpic/style/jet.all.css
+http://0.web.qstatic.com/webqqpic/style/qqweb.main.css
