@@ -33,14 +33,6 @@
   }
 }
 
-@-ms-keyframes progress-bar-stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
 
 @-o-keyframes progress-bar-stripes {
   from {
@@ -88,6 +80,7 @@ video {
   *display: inline;
   *zoom: 1;
 }
+
 
 .clearfix {
   *zoom: 1;

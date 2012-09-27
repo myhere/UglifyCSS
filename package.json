@@ -1,3 +1,37 @@
 {
-  "main": "index.js"
+  "name": "uglify-css",
+  "version": "0.1.0",
+  "author": "Lin Zhang <myhere.2009@gmail.com>",
+  "description": "CSS compressor(property order sorted for better gzip compress)/beautifier",
+  "contributors": [
+    {
+      "name": "Lin Zhang",
+      "email": "myhere.2009@gmail.com"
+    }
+  ],
+  "bin": {
+    "uglifycss": ""
+  },
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myhere/UglifyCSS.git"
+  },
+  "keywords": [
+    "css",
+    "compressor",
+    "minifier",
+    "beautifier",
+    "property sorter"
+  ],
+  "dependencies" : {
+    "parserlib": "0.1.8"
+  },
+  "devDependencies": {
+    "parserlib": "0.1.8"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
 }

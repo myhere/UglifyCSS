@@ -4,4 +4,14 @@ var uglify = require('../../'),
 
 var cssText = fs.readFileSync('./main.css', 'utf-8');
 
-uglify(cssText);
+var ast;
+try {
+  ast = uglify(cssText);
+} catch(e) {
+  console.log(e.message);
+}
+
+var s = JSON.stringify(ast, null, 2);
+
+fs.writeFileSync('main.css.ast', s);
+

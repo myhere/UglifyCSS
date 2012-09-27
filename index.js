@@ -2,8 +2,13 @@
 
 function uglify(orig_code, options){
   options || (options = {});
-
-  var parser = uglify.parser,
+  
+  var parser = new uglify.Parser({
+        starHack: true,
+        underscoreHack: true,
+        ieFilters: true,
+        strict: true
+      }),
       sorter = uglify.sorter,
       generator = uglify.generator;
 
@@ -15,7 +20,7 @@ function uglify(orig_code, options){
   return final_code;
 };
 
-uglify.parser = require('./lib/css-parser');
+uglify.Parser = require('./lib/css-parser');
 uglify.sorter = require('./lib/property-sorter');
 uglify.generator = require('./lib/generator');
 
