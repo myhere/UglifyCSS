@@ -1,0 +1,5 @@
+`node-parserlib.js` is from npm's package
+`parserlib`[github](https://github.com/nzakas/parser-lib) writen by [Nicholas
+C. Zakas](http://www.nczonline.net/).
+
+I put it here because it only installable on `os`(darwin,linux).

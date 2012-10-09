@@ -1,8 +1,7 @@
-
 var uglify = require('../../'),
     fs = require('fs');
 
-var cssText = fs.readFileSync('./main.css', 'utf-8');
+var cssText = fs.readFileSync('./fixture/main.css', 'utf-8');
 
 var ast;
 try {
@@ -13,5 +12,5 @@ try {
 
 var s = JSON.stringify(ast, null, 2);
 
-fs.writeFileSync('main.css.ast', s);
+fs.writeFileSync('./fixture/main.css.ast', s);
 
