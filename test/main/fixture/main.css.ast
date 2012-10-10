@@ -1,1 +1,15 @@
-[]
+body {
+ background-image: url("../img/glyphicons-halflings.png");
+ background-position: 14px 14px;
+ background-repeat: no-repeat;
+ color: red;
+ *margin-right: .3em;
+ display: inline-block;
+ height: 14px;
+ line-height: 14px;
+ margin-top: 1px;
+ vertical-align: text-top;
+ width: 14px;
+ *width: 12px;
+ -width: 10px;
+}

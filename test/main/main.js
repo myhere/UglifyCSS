@@ -12,5 +12,7 @@ try {
 
 var s = JSON.stringify(ast, null, 2);
 
-fs.writeFileSync('./fixture/main.css.ast', s);
+s = ast.toString();
 
+
+fs.writeFileSync('./fixture/main.css.ast', s);
