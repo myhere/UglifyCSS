@@ -1,6 +1,9 @@
 @import "dummy.css";
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media(min-width:768px){
+  body{
+    background:#ccc;
+  }
   .hidden-desktop {
     display: inherit !important;
   }
