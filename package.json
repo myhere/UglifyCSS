@@ -25,10 +25,10 @@
     "property sorter"
   ],
   "dependencies" : {
-    "parserlib": "0.1.8"
+    "cssom": "0.2.5"
   },
   "devDependencies": {
-    "parserlib": "0.1.8"
+    "cssom": "0.2.5"
   },
   "license": "MIT",
   "engines": {

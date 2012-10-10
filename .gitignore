@@ -1,6 +1,9 @@
 # vim's swp file
 *.swp
 
+
+node_modules/
+
 # size test file
 # use /test/size/download-cssfiles.js to download it
 /test/size/css
