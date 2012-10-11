@@ -43,7 +43,7 @@ function getOnlineCss() {
           // prefix index in case of conflict
           var pathname = URL.parse(url).pathname || '',
               basename = path.basename(pathname) || '',
-              filename = path.join(dir, index + '-' + basename);
+              filename = path.join(dir, basename);
 
           fs.writeFileSync(filename, buf);
         });

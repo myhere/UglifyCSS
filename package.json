@@ -26,12 +26,14 @@
   "dependencies" : {
     "cssom": "0.2.5",
     "clean-css": "0.6.0",
-    "optimist": "0.3.x"
+    "optimist": "0.3.x",
+    "iconv-lite": "0.2.5"
   },
   "devDependencies": {
     "cssom": "0.2.5",
     "clean-css": "0.6.0",
-    "optimist": "0.3.x"
+    "optimist": "0.3.x",
+    "iconv-lite": "0.2.5"
   },
   "license": "MIT",
   "engines": {

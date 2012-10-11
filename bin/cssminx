@@ -3,8 +3,18 @@
 var util = require("util");
   fs = require('fs'),
   path = require('path'),
-  argv = require('optimist').argv,
+  cli = require('optimist'),
   cssminx = require('../index');
+
+
+var argv = cli.usage('Usage:\ncssminx [option] -o <output-file> <input-file>\n')
+              .describe('h', 'print this message')
+              .describe('e', 'remove empty(cleancss)')
+              .describe('v', 'show version')
+              .describe('charset', 'specify input charset; output is encoded using the same charset')
+              .default('charset', 'utf-8')
+              .argv;
+
 
 var options = {
   source: null,
@@ -16,6 +26,7 @@ var fromStdin = !process.env['__DIRECT__'] && process.stdin.readable;
 if (argv.o) options.target = argv.o;
 if (argv._) options.source = argv._[0];
 if (argv.e) cleanOptions.removeEmpty = true;
+cleanOptions.charset = argv.charset;
 
 if (argv.v) {
   var packageConfig = fs.readFileSync(path.join(path.dirname(fs.realpathSync(process.argv[1])), '../package.json'));
@@ -24,14 +35,14 @@ if (argv.v) {
 }
 
 if (argv.h || argv.help || (!fromStdin && argv._.length == 0)) {
-  util.print('usage: cssminx [-e] -o <output-file> <input-file>\n');
+  cli.showHelp();
   return 0;
 }
 
 if (options.source) {
-  fs.readFile(options.source, 'utf8', function(error, text) {
+  fs.readFile(options.source, function(error, buf) {
     if (error) throw error;
-    output(cssminx.compress(text));
+    output(cssminx.compress(buf, cleanOptions));
   });
 } else {
   var stdin = process.openStdin();
@@ -47,7 +58,7 @@ if (options.source) {
 
 function output(cleaned) {
   if (options.target) {
-    fs.writeFileSync(options.target, cleaned, 'utf8');
+    fs.writeFileSync(options.target, cleaned, cleanOptions.charset);
   } else {
     process.stdout.write(cleaned);
   }
