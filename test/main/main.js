@@ -1,18 +1,9 @@
-var uglify = require('../../'),
+var minifier = require('../../'),
     fs = require('fs');
 
 var cssText = fs.readFileSync('./fixture/main.css', 'utf-8');
 
-var ast;
-try {
-  ast = uglify(cssText);
-} catch(e) {
-  console.log(e.message);
-}
-
-var s = JSON.stringify(ast, null, 2);
-
-s = ast.toString();
+var s = minifier.compress(cssText);
 
 
 fs.writeFileSync('./fixture/main.css.ast', s);

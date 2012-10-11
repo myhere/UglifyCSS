@@ -1,8 +1,8 @@
 {
-  "name": "uglify-css",
+  "name": "cssMinX",
   "version": "0.1.0",
   "author": "Lin Zhang <myhere.2009@gmail.com>",
-  "description": "CSS compressor(property order sorted for better gzip compress)/beautifier",
+  "description": "CSS compressor(property order sorted for better gzip compress)",
   "contributors": [
     {
       "name": "Lin Zhang",
@@ -10,7 +10,7 @@
     }
   ],
   "bin": {
-    "uglifycss": ""
+    "cssminx": "./bin/cssminx"
   },
   "main": "./index",
   "repository": {
@@ -21,17 +21,20 @@
     "css",
     "compressor",
     "minifier",
-    "beautifier",
     "property sorter"
   ],
   "dependencies" : {
-    "cssom": "0.2.5"
+    "cssom": "0.2.5",
+    "clean-css": "0.6.0",
+    "optimist": "0.3.x"
   },
   "devDependencies": {
-    "cssom": "0.2.5"
+    "cssom": "0.2.5",
+    "clean-css": "0.6.0",
+    "optimist": "0.3.x"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=0.6"
+    "node": ">=0.8"
   }
 }
