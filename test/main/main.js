@@ -3,32 +3,31 @@ var minifier = require('../../'),
     cleancss = require('clean-css'),
     fs = require('fs');
 
+// 文件编码转换
 var charset = 'utf-8';
 // var charset = 'gbk';
 
-var cssText = fs.readFileSync('./fixture/main.css'); 
 
-var s = minifier.compress(cssText, {
+// sort + clean
+var rawBuf = fs.readFileSync('./fixture/main.css'); 
+var newBuf = minifier.compress(rawBuf, {
   charset: charset
 });
 
-
-fs.writeFileSync('./fixture/main.sorted.css', s);
-
+fs.writeFileSync('./fixture/main.sorted.css', newBuf);
 
 
-// 压缩一遍
 
-
+// clean
 if (charset == 'gbk') {
-  cssText = helper.iconv('gbk', 'utf-8', cssText);
+  newBuf = helper.iconv('gbk', 'utf-8', rawBuf);
 }
 
-cssText = cssText.toString('utf-8');
-var s = cleancss.process(cssText);
+var s = newBuf.toString('utf-8');
+s = cleancss.process(s);
 
 if (charset == 'gbk') {
-  s = helper.iconv('utf-8', 'gbk', s);
+  newBuf = helper.iconv('utf-8', 'gbk', s);
 }
 
-fs.writeFileSync('./fixture/main.cleaned.css', s);
+fs.writeFileSync('./fixture/main.cleaned.css', newBuf);
