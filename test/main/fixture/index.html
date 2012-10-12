@@ -1,11 +1,36 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <link rel="stylesheet" href="./main.css" type="text/css">
+<meta charset="UTF-8">
+<title></title>
+
+<script>
+(function() {
+var query = location.search;
+var l = '';
+if ((/[\?&]sorted(?:[=&]|$)/i).test(query)) {
+  l = '<link rel="stylesheet" href="./main.sorted.css?t=' + (+new Date) + '" type="text/css">';
+} else if ((/[\?&]cleaned(?:[=&]|$)/i).test(query)) {
+  l = '<link rel="stylesheet" href="./main.cleaned.css?t=' + (+new Date) + '" type="text/css">';
+} else {
+  l = '<link rel="stylesheet" href="./main.css?t=' + (+new Date) + '" type="text/css">';
+}
+
+document.write(l);
+
+})();
+</script>
 </head>
 <body>
+
+<div class="css-expression-test">
+css expression test,
+在 ie6/7 下点击下面链接查看此处背景颜色
+</div>
+<a href="?#red">raw</a>
+<a href="?cleaned#red">cleaned</a>
+<a href="?sorted#red">sorted</a>
+
 
 </body>
 </html>

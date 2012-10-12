@@ -19,15 +19,12 @@ fs.writeFileSync('./fixture/main.sorted.css', newBuf);
 
 
 // clean
-if (charset == 'gbk') {
-  newBuf = helper.iconv('gbk', 'utf-8', rawBuf);
-}
+var newBuf = helper.iconv(charset, 'utf-8', rawBuf);
 
 var s = newBuf.toString('utf-8');
 s = cleancss.process(s);
 
-if (charset == 'gbk') {
-  newBuf = helper.iconv('utf-8', 'gbk', s);
-}
+newBuf = helper.iconv('utf-8', charset, s);
+
 
 fs.writeFileSync('./fixture/main.cleaned.css', newBuf);

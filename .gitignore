@@ -2,7 +2,8 @@
 *.swp
 
 
-node_modules/
+/node_modules/*
+!/node_modules/cssom
 
 # size test file
 # use /test/size/download-cssfiles.js to download it
