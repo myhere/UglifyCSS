@@ -21,7 +21,9 @@ function compress(code, option) {
 
   var css = sorter.sort(code);
 
-  // css = minfier.process(css, option);
+  if (!option.debug) {
+    css = minfier.process(css, option);
+  }
 
   var newBuf = helper.iconv(defaultEncoding, option.charset, css);
 

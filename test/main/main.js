@@ -11,7 +11,8 @@ var charset = 'utf-8';
 // sort + clean
 var rawBuf = fs.readFileSync('./fixture/main.css'); 
 var newBuf = minifier.compress(rawBuf, {
-  charset: charset
+  charset: charset,
+  debug: true
 });
 
 fs.writeFileSync('./fixture/main.sorted.css', newBuf);

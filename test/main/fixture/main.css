@@ -19,10 +19,13 @@ html {
       }
     }
 
-    var reg = /"/i;
-    var reg = /""/i;
+    var n1 = 4/5;
+    
+    // hello line comment
 
-    var abc = 5/5, 3/e;
+    var n2 = 5/6;
+
+    var r1 = /hello ( /img;
 
     // hello line comment
 

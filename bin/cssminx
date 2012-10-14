@@ -13,6 +13,8 @@ var argv = cli.usage('Usage:\ncssminx [option] -o <output-file> <input-file>\n')
               .describe('v', 'show version')
               .describe('charset', 'specify input charset; output is encoded using the same charset')
               .default('charset', 'utf-8')
+              .describe('d', 'debug mode, only sort, not compress')
+              .default('d', false)
               .argv;
 
 
@@ -27,6 +29,7 @@ if (argv.o) options.target = argv.o;
 if (argv._) options.source = argv._[0];
 if (argv.e) cleanOptions.removeEmpty = true;
 cleanOptions.charset = argv.charset;
+cleanOptions.debug = argv.debug;
 
 if (argv.v) {
   var packageConfig = fs.readFileSync(path.join(path.dirname(fs.realpathSync(process.argv[1])), '../package.json'));
