@@ -40,27 +40,29 @@ function gzip(buffer, cb) {
 }
 
 var files = fs.readdirSync('./css');
-files.forEach(function(file) {
+files
+.filter(function(file) {
   file = './css/' + file;
   var stat = fs.statSync(file);
-  if (stat.isFile()) {
-    var buf = fs.readFileSync(file);
 
-    var processor = new Processor(buf);
+  return stat.isFile();
+})
+.forEach(function(file) {
+  file = './css/' + file;
+  var buf = fs.readFileSync(file);
 
-    var cleaned = processor.clean(),
-        sorted = processor.sort();
+  var processor = new Processor(buf);
 
-    gzip(cleaned, function(result) {
-      save(file, 'cleaned', cleaned, result);
-    })
+  var cleaned = processor.clean(),
+      sorted = processor.sort();
 
-    gzip(sorted, function(result) {
-      save(file, 'sorted', sorted, result);
-    })
-    
+  gzip(cleaned, function(result) {
+    save(file, 'cleaned', cleaned, result);
+  });
 
-  }
+  gzip(sorted, function(result) {
+    save(file, 'sorted', sorted, result);
+  });
 });
 
 
@@ -82,15 +84,13 @@ function save(file, type, raw, gziped) {
   }
   save.counter += 1;
 
-  if (save.counter >= 6) {
+  if (save.counter >= files.length * 2) {
     report(obj);
   }
 }
 
 
 function report(obj) {
-
-
   var table = new Table({
     head: [
       'file',
