@@ -31,7 +31,8 @@
   "devDependencies": {
     "clean-css": "0.6.0",
     "optimist": "0.3.x",
-    "iconv-lite": "0.2.5"
+    "iconv-lite": "0.2.5",
+    "cli-table": "0.0.2"
   },
   "license": "MIT",
   "engines": {
