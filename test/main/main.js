@@ -29,3 +29,10 @@ newBuf = helper.iconv('utf-8', charset, s);
 
 
 fs.writeFileSync('./fixture/main.cleaned.css', newBuf);
+
+
+var css = "body{margin:0;}";
+
+var minified = minifier.compress(css);
+
+console.log(minified);
